@@ -1,17 +1,13 @@
 /**
- * Renderiza o formulário para criar uma nova tarefa.
- * @return {string} HTML do formulário de criação de tarefa.
+ * Renderiza o formulário para criar uma nova genero.
+ * @return {string} HTML do formulário de criação de genero.
  */
 function renderizarFormulario() {
   return `
-          <form class="mt-3" id="formulario_tarefa">
+          <form class="mt-3" id="formulario_genero">
               <div class="form-group">
-                  <label for="tarefa_titulo">Título da tarefa:</label>
-                  <input type="text" class="form-control" id="tarefa_titulo_formulario">
-              </div>
-              <div class="form-group">
-                  <label for="tarefa_descricao">Descrição:</label>
-                  <textarea class="form-control" id="tarefa_descricao_formulario"></textarea>
+                  <label for="genero_nome">Título do Gênero:</label>
+                  <input type="text" class="form-control" id="genero_nome_formulario">
               </div>
               <button type="submit" class="btn btn-primary mt-2">Salvar</button>
           </form>
@@ -20,20 +16,16 @@ function renderizarFormulario() {
 
 /**
  * Renderiza o formulário para atualizar uma tarefa existente.
- * @param {Object} tarefa - A tarefa a ser atualizada.
+ * @param {Object} genero - A tarefa a ser atualizada.
  * @return {string} HTML do formulário de atualização de tarefa.
  */
-function renderizarFormularioAtualizar(tarefa) {
+function renderizarFormularioAtualizar(genero) {
     return `
-            <form class="mt-3" id="formulario_tarefa_atualizar">
-                <input type="hidden" class="form-control" id="tarefa_id_formulario" value="${tarefa.id}">
-                <div class="form-group">
-                    <label for="tarefa_titulo">Título da tarefa:</label>
-                    <input type="text" class="form-control" id="tarefa_titulo_formulario" value="${tarefa.titulo}">
-                </div>
-                <div class="form-group">
-                    <label for="tarefa_descricao">Descrição:</label>
-                    <textarea class="form-control" id="tarefa_descricao_formulario">${tarefa.descricao}</textarea>
+            <form class="mt-3" id="formulario_genero_atualizar">
+                <input type="hidden" class="form-control" id="genero_id_formulario" value="${genero.id}">
+                <div class="form-group"> 
+                    <label for="genero_nome">Título do Gênero:</label>
+                    <input type="text" class="form-control" id="genero_nome_formulario" value="${genero.titulo}">
                 </div>
                 <button type="submit" class="btn btn-primary mt-2">Salvar</button>
             </form>
@@ -42,15 +34,15 @@ function renderizarFormularioAtualizar(tarefa) {
 
   /**
  * Renderiza a tabela de tarefas.
- * @param {Array} tarefas - Lista de tarefas a serem exibidas.
+ * @param {Array} genero - Lista de tarefas a serem exibidas.
  * @return {string} HTML da tabela de tarefas.
  */
-function renderizarTabela(tarefas) {
+function renderizarTabela(genero) {
   let tabela = `
           <table class="table table-striped mt-3">
               <thead>
                   <tr>
-                      <th>Título da tarefa</th>
+                      <th>Título do Gênero</th>
                       <th>Descrição</th>
                       <th>Ações</th>
                   </tr>
@@ -58,31 +50,29 @@ function renderizarTabela(tarefas) {
               <tbody>
       `;
 
-  tarefas.forEach((tarefa) => {
-    tabela += `
+  genero.forEach((genero) => {
+    genero += `
               <tr>
-                  <td>${tarefa.titulo}</td>
-                  <td>${tarefa.descricao}</td>
+                  <td>${genero.nome}</td>
                   <td>
-                    <button class="excluir-btn" tarefa-id=${tarefa.id}>Excluir</button>
-                    <button class="atualizar-btn" tarefa-atualizar-id=${tarefa.id}>Atualizar</button>
+                    <button class="excluir-btn" genero-id=${genero.id}>Excluir</button>
+                    <button class="atualizar-btn" genero-atualizar-id=${genero.id}>Atualizar</button>
                   </td>
               </tr>
           `;
   });
 
-  tabela += `
+  genero += `
               </tbody>
           </table>
       `;
-
-  return tabela;
+  return genero;
 }
 
-const TarefaView = {
+const GeneroView = {
     renderizarFormulario,
     renderizarTabela,
     renderizarFormularioAtualizar
 };
 
-export default TarefaView;
+export default GeneroView;

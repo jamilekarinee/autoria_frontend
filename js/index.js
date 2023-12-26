@@ -1,5 +1,7 @@
-import tarefaController from "../js/controller/TarefaController.js";
+import tarefaController from "../js/controller/TarefaController";
 import loginController from "../js/controller/LoginController.js";
+import ProdutoraController from "../js/controller/ProdutoraController";
+import GeneroController from "../js/controller/GeneroController";
 
 // Função auxiliar para selecionar elementos no DOM.
 const $ = document.querySelector.bind(document);
@@ -41,14 +43,23 @@ function esconderConteudoPrincipal() {
 document.addEventListener('DOMContentLoaded', verificarLogin);
 
 // Adiciona ouvintes de eventos para itens de menu.
-$("#tarefa").addEventListener("click", function() {
+$("#produtora").addEventListener("click", function() {
   fecharNavBar();
-  tarefaController.renderizarTarefaFormulario(componentePrincipal);
+  ProdutoraController.renderizarProdutoraFormulario(componentePrincipal);
+});
+// Adiciona ouvintes de eventos para itens de menu.
+$("#genero").addEventListener("click", function() {
+  fecharNavBar();
+  GeneroController.renderizarGeneroFormulario(componentePrincipal);
 });
 
-$("#lista_tarefas").addEventListener("click", function() {
+$("#lista_produtora").addEventListener("click", function() {
   fecharNavBar();
-  tarefaController.renderizarListaTarefas(componentePrincipal);
+  tarefaController.renderizarListaProdutora(componentePrincipal);
+});
+$("#lista_genero").addEventListener("click", function() {
+  fecharNavBar();
+  tarefaController.renderizarListaGenero(componentePrincipal);
 });
 
 // Adiciona ouvinte de evento para o formulário de login.

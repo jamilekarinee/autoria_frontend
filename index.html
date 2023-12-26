@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto MVC</title>
+  <title>Projeto Autoria Web</title>
 
   <!-- CSS Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,36 +13,35 @@
 
 <style>
   /* Estilos para o container do login */
-#login {
+  #login {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f5f5f5;
-}
+  }
 
-/* Estilos para o formulário de login */
-#login-form {
-
+  /* Estilos para o formulário de login */
+  #login-form {
     padding: 20px;
     background: #ffffff;
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+  }
 
-/* Estilos para os campos de entrada do formulário */
-#login-form input[type="text"],
-#login-form input[type="password"] {
+  /* Estilos para os campos de entrada do formulário */
+  #login-form input[type="text"],
+  #login-form input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #000000;
     border-radius: 3px;
-}
+  }
 
-/* Estilos para o botão de submit */
-#login-form button {
+  /* Estilos para o botão de submit */
+  #login-form button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -50,26 +49,25 @@
     background-color: #000000;
     color: white;
     cursor: pointer;
-}
+  }
 
-#login-form button:hover {
+  #login-form button:hover {
     background-color: #333333;
-}
+  }
 </style>
 
 <body>
-
   <div id="login" style="display: none;">
     <form id="login-form">
-        <input type="text" id="usuario" placeholder="Nome de usuário" required>
-        <input type="password" id="senha" placeholder="Senha" required>
-        <button type="submit">Login</button>
+      <input type="text" id="usuario" placeholder="Nome de usuário" required>
+      <input type="password" id="senha" placeholder="Senha" required>
+      <button type="submit">Login</button>
     </form>
   </div>
-  
+
   <div id="app" style="display: none; margin: 0; border: 0; padding: 0;">
 
-    <!-- INÍCIO NAVBAR e SIDE BAR -->  
+    <!-- INÍCIO NAVBAR e SIDE BAR -->
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <div>
@@ -77,27 +75,33 @@
             aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand" href="#" style="margin-left: 10px;">Controle de tarefas - Projeto MVC</a>
+          <a class="navbar-brand" href="#" style="margin-left: 10px;">Controle de Produtoras - Projeto MVC</a>
+          <a class="navbar-brand" href="#" style="margin-left: 10px;">Controle de Gêneros - Projeto MVC</a>
         </div>
         <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
           aria-labelledby="offcanvasDarkNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Controle de tarefas</h5>
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Controle de Produtoras</h5>
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Controle de Gêneros</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
               aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" id="tarefa"><span data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse">Tarefas</span></a>
+                <a class="nav-link active" aria-current="page" href="#" id="produtora"><span
+                  data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse">Produtoras</span></a>
+                <a class="nav-link active" aria-current="page" href="#" id="genero"><span
+                    data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse">Gêneros</span></a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#" id="lista_produtora">Lista de Produtoras</a>
+                <a class="nav-link active" href="#" id="lista_genero">Lista de Gêneros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#" id="lista_tarefas">Lista de tarefas</a>
-              </li>      
-              <li class="nav-item">
                 <a class="nav-link active" href="#" id="logout">Logout</a>
-              </li>                  
-            </ul>          
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -117,5 +121,4 @@
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

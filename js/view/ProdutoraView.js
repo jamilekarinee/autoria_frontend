@@ -1,17 +1,17 @@
 /**
- * Renderiza o formulário para criar uma nova tarefa.
- * @return {string} HTML do formulário de criação de tarefa.
+ * Renderiza o formulário para criar uma nova produtora.
+ * @return {string} HTML do formulário de criação de produtora.
  */
 function renderizarFormulario() {
   return `
-          <form class="mt-3" id="formulario_tarefa">
+          <form class="mt-3" id="formulario_produtora">
               <div class="form-group">
-                  <label for="tarefa_titulo">Título da tarefa:</label>
-                  <input type="text" class="form-control" id="tarefa_titulo_formulario">
+                  <label for="produtora_nome">Título da Produtora:</label>
+                  <input type="text" class="form-control" id="produtora_nome_formulario">
               </div>
               <div class="form-group">
-                  <label for="tarefa_descricao">Descrição:</label>
-                  <textarea class="form-control" id="tarefa_descricao_formulario"></textarea>
+                  <label for="produtora_endereco">Descrição:</label>
+                  <textarea class="form-control" id="produtora_endereco_formulario"></textarea>
               </div>
               <button type="submit" class="btn btn-primary mt-2">Salvar</button>
           </form>
@@ -19,21 +19,21 @@ function renderizarFormulario() {
 }
 
 /**
- * Renderiza o formulário para atualizar uma tarefa existente.
- * @param {Object} tarefa - A tarefa a ser atualizada.
- * @return {string} HTML do formulário de atualização de tarefa.
+ * Renderiza o formulário para atualizar uma produtora existente.
+ * @param {Object} produtora - A produtora a ser atualizada.
+ * @return {string} HTML do formulário de atualização de produtora.
  */
-function renderizarFormularioAtualizar(tarefa) {
+function renderizarFormularioAtualizar(produtora) {
     return `
-            <form class="mt-3" id="formulario_tarefa_atualizar">
-                <input type="hidden" class="form-control" id="tarefa_id_formulario" value="${tarefa.id}">
+            <form class="mt-3" id="formulario_produtora_atualizar">
+                <input type="hidden" class="form-control" id="produtora_id_formulario" value="${produtora.id}">
                 <div class="form-group">
-                    <label for="tarefa_titulo">Título da tarefa:</label>
-                    <input type="text" class="form-control" id="tarefa_titulo_formulario" value="${tarefa.titulo}">
+                    <label for="produtora_nome">Título da Produtora:</label>
+                    <input type="text" class="form-control" id="produtora_nome_formulario" value="${produtora.nome}">
                 </div>
                 <div class="form-group">
-                    <label for="tarefa_descricao">Descrição:</label>
-                    <textarea class="form-control" id="tarefa_descricao_formulario">${tarefa.descricao}</textarea>
+                    <label for="produtora_endereco">Descrição:</label>
+                    <textarea class="form-control" id="produtora_endereco_formulario">${produtora.endereco}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary mt-2">Salvar</button>
             </form>
@@ -42,15 +42,15 @@ function renderizarFormularioAtualizar(tarefa) {
 
   /**
  * Renderiza a tabela de tarefas.
- * @param {Array} tarefas - Lista de tarefas a serem exibidas.
+ * @param {Array} produtora - Lista de tarefas a serem exibidas.
  * @return {string} HTML da tabela de tarefas.
  */
-function renderizarTabela(tarefas) {
-  let tabela = `
+function renderizarProdutora(produtora) {
+  let produtora = `
           <table class="table table-striped mt-3">
               <thead>
                   <tr>
-                      <th>Título da tarefa</th>
+                      <th>Título da Produtora</th>
                       <th>Descrição</th>
                       <th>Ações</th>
                   </tr>
@@ -58,31 +58,31 @@ function renderizarTabela(tarefas) {
               <tbody>
       `;
 
-  tarefas.forEach((tarefa) => {
-    tabela += `
+  tarefas.forEach((produtora) => {
+    produtora += `
               <tr>
-                  <td>${tarefa.titulo}</td>
-                  <td>${tarefa.descricao}</td>
+                  <td>${produtora.nome}</td>
+                  <td>${produtora.endereco}</td>
                   <td>
-                    <button class="excluir-btn" tarefa-id=${tarefa.id}>Excluir</button>
-                    <button class="atualizar-btn" tarefa-atualizar-id=${tarefa.id}>Atualizar</button>
+                    <button class="excluir-btn" tarefa-id=${produtora.id}>Excluir</button>
+                    <button class="atualizar-btn" tarefa-atualizar-id=${produtora.id}>Atualizar</button>
                   </td>
               </tr>
           `;
   });
 
-  tabela += `
+  produtora += `
               </tbody>
           </table>
       `;
 
-  return tabela;
+  return produtora;
 }
 
-const TarefaView = {
+const ProdutoraView = {
     renderizarFormulario,
-    renderizarTabela,
+    renderizarProdutora,
     renderizarFormularioAtualizar
 };
 
-export default TarefaView;
+export default ProdutoraView;
